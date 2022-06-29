@@ -5,16 +5,13 @@ const instance = axios.create({
 });
 
 export const all = () => {
-    const data = instance.get('all');
-    return data;
+    return instance.get('all?fields=name,capital,flags,population,region');
 };
 
 export const getCountryByName = (name) => {
-    const data = instance.get(`name/${name}`);
-    return data;
+    return instance.get(`name/${name}`);
 }
 
 export const filterByCode = (codes) => {
-    const data = instance.get(`alpha?codes=${codes.join(',')}`);
-    return data;
+    return instance.get(`alpha?codes=${codes.join(',')}`);
 }
