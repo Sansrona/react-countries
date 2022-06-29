@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 import { Container } from './Container';
 
@@ -14,7 +15,7 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 2rem 0; 
 `;
-const Title = styled.a.attrs({ href: '/' })`
+const Title = styled(Link).attrs({ to: '/' })`
     color: var(--colors-text);
     font-size: var(--fs-sm);
     font-weight: var(--fw-bold);
