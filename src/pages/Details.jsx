@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 
 import { getCountryByName } from '../api';
+import { Button } from '../components/Button';
+import { Info } from '../components/Info';
 
 
 export const Details = () => {
@@ -14,16 +16,15 @@ export const Details = () => {
     }
 
     useEffect(() => {
-        getCountryByName(name).then(({ data }) => setCountry(data));
+        getCountryByName(name).then(({ data }) => setCountry(data[0]));
     }, [name])
-
-    console.log(country);
 
     return (
         <div>
-            <button onClick={goBack}>
+            <Button onClick={goBack}>
                 <IoArrowBack /> Back
-            </button>
-            Details {name}</div>
+            </Button>
+            <Info {...country} push={navigate} />
+        </div>
     )
 }
