@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components';
 
 import { CustomSelect } from './CustomSelect'
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     @media(min-width: 767px){
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     }
 `;
 
@@ -24,9 +24,15 @@ const options = [
     { value: 'Oceania', label: 'Oceania' }
 ];
 
-export const Custom = () => {
+export const Controls = ({ onSearch }) => {
     const [search, setSearch] = useState('');
     const [region, setRegion] = useState('');
+    
+    useEffect(() => {
+        const regionValue = region?.value || '';
+        onSearch(search, regionValue);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [search, region])
 
     return (
         <Wrapper>

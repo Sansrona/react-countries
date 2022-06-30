@@ -35,7 +35,7 @@ const Search = ({ search, setSearch }) => {
     return (
         <InputController>
             <IoSearch />
-            <Input value={search} onChange={(e) => { setSearch(e.target.value) }} />
+            <Input value={search} onChange={(e) => setSearch(e.target.value)} />
         </InputController>
     )
 }
